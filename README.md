@@ -1,24 +1,5 @@
-# README
+# A simple website following the basic principles of Yelp
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This website allows users to see a list of restaurants, and find out about the restaurant's details and reviews when clicking on the restaurant's name.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Created with Ruby on Rails.
