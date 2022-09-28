@@ -14,30 +14,22 @@
   </ul>
 
   <p><strong>Reviews</strong></p>
-  <% if @restaurant.reviews.empty? %>
-    <p>There are no reviews for this restaurant yet.</p>
-  <% else %>
-    <ul class="list-group">
-      <% @restaurant.reviews.each do |review| %>
-        <li class="list-group-item">
-          <span>
-            Rating: <%= review.rating %>
-          </span>
-          <p>
-            <%= review.content %>
-          </p>
-        </li>
+  <div data-controller="insert-in-list">
+    <div data-insert-in-list-target="items">
+      <% if @restaurant.reviews.empty? %>
+        <p>There are no reviews for this restaurant yet.</p>
+      <% else %>
+        <ul class="list-group">
+          <% @restaurant.reviews.each do |review| %>
+              <%= render "review", review: review %>
+          <% end %>
+        </ul>
       <% end %>
-    </ul>
-  <% end %>
+    </div>
 
-  <h3>Add a review for <%= @restaurant.name %></h3>
-
-  <%= simple_form_for [@restaurant, @review] do |f| %>
-    <%= f.input :rating, as: :select, collection: (0..5), prompt: 'Rate your experience', error: 'Please select a number for your rating.' %>
-    <%= f.input :content, error: 'Please add a comment.' %>
-    <%= f.submit %>
-  <% end %>
+    <h3>Add a review for <%= @restaurant.name %></h3>
+    <%= render "reviews/form", restaurant: @restaurant, review: @review %>
+  </div>
 
   <br>
 
