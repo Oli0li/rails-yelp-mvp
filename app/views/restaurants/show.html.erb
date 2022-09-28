@@ -14,18 +14,22 @@
   </ul>
 
   <p><strong>Reviews</strong></p>
-  <ul class="list-group">
-    <% @restaurant.reviews.each do |review| %>
-      <li class="list-group-item">
-        <span>
-          Rating: <%= review.rating %>
-        </span>
-        <p>
-          <%= review.content %>
-        </p>
-      </li>
-    <% end %>
-  </ul>
+  <% if @restaurant.reviews.empty? %>
+    <p>There are no reviews for this restaurant yet.</p>
+  <% else %>
+    <ul class="list-group">
+      <% @restaurant.reviews.each do |review| %>
+        <li class="list-group-item">
+          <span>
+            Rating: <%= review.rating %>
+          </span>
+          <p>
+            <%= review.content %>
+          </p>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
 
   <h3>Add a review for <%= @restaurant.name %></h3>
 
