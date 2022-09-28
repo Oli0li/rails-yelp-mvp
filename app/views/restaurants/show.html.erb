@@ -16,15 +16,12 @@
   <p><strong>Reviews</strong></p>
   <div data-controller="insert-in-list">
     <div data-insert-in-list-target="items">
-      <% if @restaurant.reviews.empty? %>
-        <p>There are no reviews for this restaurant yet.</p>
-      <% else %>
+        <p data-insert-in-list-target="noReviewsMsg" class=<%= @restaurant.reviews.empty? ? "no-review-msg" : "d-none" %>>There are no reviews for this restaurant yet.</p>
         <ul class="list-group">
           <% @restaurant.reviews.each do |review| %>
               <%= render "review", review: review %>
           <% end %>
         </ul>
-      <% end %>
     </div>
 
     <h3>Add a review for <%= @restaurant.name %></h3>
