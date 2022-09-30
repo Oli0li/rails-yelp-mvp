@@ -1,4 +1,7 @@
 <li class="list-group-item">
-  <span>Rating: <%= review.rating %></span>
+  <div class="d-flex justify-content-between">
+    <span>Rating: <%= review.rating %></span>
+    <p><%= review.created_at.strftime("%d/%m/%Y %H:%M:%S UTC") %></p>
+  </div>
   <p><%= review.content %></p>
 </li>
