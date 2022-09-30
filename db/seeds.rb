@@ -5,6 +5,9 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+puts "Destroying all restaurants..."
+Restaurant.destroy_all
+
 puts "Creating restaurants..."
 name = ["Noodles King", "Mamma Mia", "Makoto", "Chez Colette", "Au Manneken-Peace"]
 address = ["5 rue Jean Jaurès, 33000 Bordeaux", "2 rue Lorme, 33000 Bordeaux", "15 boulevard des pins, 33200 Talence", "6 rue des peupliers, 24000 Bergerac", "120 cours du 14 juillet, 33000 Bordeaux"]
@@ -13,6 +16,8 @@ categories = ["chinese", "italian", "japanese", "french", "belgian"]
 
 5.times do |i|
   restaurant = Restaurant.create!({name: name[i], address: address[i], phone_number: phone_number[i], category: categories[i]})
+  # restaurant_picture = URI.open(pictures[i])
+  # restaurant.photo.attach(io: restaurant_picture, filename: "#{name[i].join("_")}", content_type: "image/jpg")
   puts "Created #{restaurant.name}"
 end
 puts "Finished!"
