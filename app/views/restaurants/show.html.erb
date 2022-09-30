@@ -13,19 +13,19 @@
     </li>
   </ul>
 
-  <p><strong>Reviews</strong></p>
-  <div data-controller="insert-in-list">
+  <h3>Reviews for <%= @restaurant.name %></h3>
+  <div data-controller="insert-in-list" data-insert-in-list-position-value="afterbegin">
+    <h5>Let us know what you think:</h5>
+    <%= render "reviews/form", restaurant: @restaurant, review: @review %>
     <div data-insert-in-list-target="items">
-        <p data-insert-in-list-target="noReviewsMsg" class=<%= @restaurant.reviews.empty? ? "no-review-msg" : "d-none" %>>There are no reviews for this restaurant yet.</p>
-        <ul class="list-group">
-          <% @restaurant.reviews.each do |review| %>
-              <%= render "review", review: review %>
-          <% end %>
-        </ul>
+      <p data-insert-in-list-target="noReviewsMsg" class=<%= @ordered_reviews.empty? ? "no-review-msg" : "d-none" %>>There are no reviews for this restaurant yet.</p>
+      <ul class="list-group">
+        <% @ordered_reviews.each do |review| %>
+            <%= render "review", review: review %>
+        <% end %>
+      </ul>
     </div>
 
-    <h3>Add a review for <%= @restaurant.name %></h3>
-    <%= render "reviews/form", restaurant: @restaurant, review: @review %>
   </div>
 
   <br>

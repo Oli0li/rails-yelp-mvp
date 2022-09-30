@@ -6,6 +6,7 @@ class RestaurantsController < ApplicationController
   def show
     @restaurant = Restaurant.find(params[:id])
     @review = Review.new
+    @ordered_reviews = @restaurant.reviews.order(created_at: :desc)
   end
 
   def new

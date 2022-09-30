@@ -3,6 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="insert-in-list"
 export default class extends Controller {
   static targets = ["items", "form", "noReviewsMsg"]
+  static values = { position: String }
 
   connect() {
     // console.log(this.element)
@@ -26,7 +27,7 @@ export default class extends Controller {
       console.log(data);
       if (data.my_inserted_item) {
         this.noReviewsMsgTarget.classList.add("d-none");
-        this.itemsTarget.insertAdjacentHTML('beforeend', data.my_inserted_item)
+        this.itemsTarget.insertAdjacentHTML(this.positionValue, data.my_inserted_item)
       }
       this.formTarget.outerHTML = data.my_form
     })
