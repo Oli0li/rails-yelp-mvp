@@ -1,7 +1,7 @@
-<div class="container">
+<div class="container" data-controller="restaurant-map">
   <h1><%= @restaurant.name %></h1>
 
-  <img src="https://source.unsplash.com/800x450/?restaurant" alt="picture of the restaurant">
+  <% <img src="https://source.unsplash.com/800x450/?restaurant" alt="picture of the restaurant"> %>
   <ul>
     <li>
       <strong>Category:</strong> <%= @restaurant.category.capitalize %>

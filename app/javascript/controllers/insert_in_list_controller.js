@@ -9,7 +9,7 @@ export default class extends Controller {
     // console.log(this.element)
     // console.log(this.itemsTarget)
     // console.log(this.formTarget)
-    console.log(this.noReviewsMsgTarget)
+    // console.log(this.noReviewsMsgTarget)
   }
 
   send(event) {
